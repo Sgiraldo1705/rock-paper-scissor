@@ -8,10 +8,63 @@
   </head>
   <body>
     <script>
+      //the computer need to random select rock paper or scissor
       let options = ["rock", "paper", "scissors"];
-      let getComputerChoice =
+
+      const computerSelection =
         options[Math.floor(Math.random() * options.length)];
-      console.log(getComputerChoice);
+
+      //the player must input rock paper or scissor
+      let userSelection = prompt("choose between Rock, Paper or Scissors");
+
+      function playRound(userSelection, computerSelection) {
+        if (userSelection === computerSelection) {
+          return "tie";
+        }
+        if (
+          (userSelection == "rock" && computerSelection == "scissors") ||
+          (userSelection == "scissors" && computerSelection == "paper") ||
+          (userSelection == "paper" && computerSelection == "rock")
+        ) {
+          userScore++;
+          return "player wins";
+        }
+        if (
+          (computerSelection == "rock" && userSelection == "scissors") ||
+          (computerSelection == "scissors" && userSelection == "paper") ||
+          (computerSelection == "paper" && userSelection == "rock")
+        ) {
+          computerScore++;
+          return "computer wins";
+        }
+      }
+
+      let userScore = 0;
+      let computerScore = 0;
+      let totalScore = userScore + computerScore;
+
+      console.log(
+        playRound(userSelection, computerSelection) +
+          " score: " +
+          "user:" +
+          userScore +
+          " " +
+          "computer:" +
+          computerScore
+      );
+      function game() {
+        playRound(userSelection, computerSelection);
+        for (let totalScore = 0; totalScore <= 5; totalScore++) {
+          if (userScore == 5) {
+            console.log("player wins");
+          } else if (computerScore == 5) {
+            console.log("computer wins");
+          } else {
+            break;
+          }
+        }
+      }
+      //ENDS when either has 5 points
     </script>
   </body>
 </html>
