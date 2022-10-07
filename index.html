@@ -7,58 +7,20 @@
     <title>Document</title>
   </head>
   <body>
-    <script>
-      let userScore = 0;
-      let computerScore = 0;
-      let round = 0;
+    <header class="header">
+      <h1 class="title">ROCK PAPER SCISSORS</h1>
+    </header>
+    <div class="buttons">
+      <button class="btn" id="rockBtn">ROCK</button>
+      <button class="btn" id="paperBtn">PAPER</button>
+      <button class="btn" id="scissorBtn">SCISSORS</button>
+    </div>
+    <div class="scores">
+      <div class="score" id="userScore">player: 0</div>
 
-      //the computer need to random select rock paper or scissor
-      let options = ["rock", "paper", "scissors"];
-      let computerSelection =
-        options[Math.floor(Math.random() * options.length)];
+      <div class="score" id="computerScore">computer: 0</div>
+    </div>
 
-      //the player must input rock paper or scissor
-      let userSelection = prompt("choose between Rock, Paper or Scissors");
-
-      function playRound(userSelection, computerSelection) {
-        if (userSelection === computerSelection) {
-          return "tie";
-          round++;
-        }
-        if (
-          (userSelection == "rock" && computerSelection == "scissors") ||
-          (userSelection == "scissors" && computerSelection == "paper") ||
-          (userSelection == "paper" && computerSelection == "rock")
-        ) {
-          userScore++;
-          return "player wins";
-          round++;
-        }
-        if (
-          (computerSelection == "rock" && userSelection == "scissors") ||
-          (computerSelection == "scissors" && userSelection == "paper") ||
-          (computerSelection == "paper" && userSelection == "rock")
-        ) {
-          computerScore++;
-          return "computer wins";
-          round++;
-        }
-      }
-      function game() {
-        for (round = 1; round < 6; round++) {
-          playRound(
-            (userSelection = prompt("choose between Rock, Paper or Scissors")),
-            (computerSelection =
-              options[Math.floor(Math.random() * options.length)])
-          );
-
-          console.log(
-            " score: " + "user:" + userScore + " " + "computer:" + computerScore
-          );
-        }
-      }
-      game();
-      //ENDS when either has 5 points
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
